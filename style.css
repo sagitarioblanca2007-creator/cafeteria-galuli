@@ -1,0 +1,1250 @@
+/* Reset y Variables */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #cf630a;
+    --dark-brown: #ca5806;
+    --medium-brown: #b4591c;
+    --deep-brown: #933e01;
+    --very-dark: #933e01;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Header Styles */
+.header {
+    background: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 0;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.header-actions {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.icon-btn {
+    background: transparent;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    position: relative;
+}
+
+.icon-btn:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.icon-btn svg {
+    display: block;
+    color: #333;
+}
+
+.cart-btn {
+    position: relative;
+}
+
+.badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: #ff6b35;
+    color: white;
+    font-size: 0.7rem;
+    font-weight: bold;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Mobile Menu */
+.menu-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 200;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.menu-content {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 16rem;
+    background: white;
+    padding: 2rem 1.5rem;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+}
+
+.menu-overlay.active .menu-content {
+    transform: translateX(0);
+}
+
+.mobile-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.nav-link {
+    color: #333;
+    text-decoration: none;
+    padding: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--primary-color);
+}
+
+/* Main Content */
+.main-content {
+    background: linear-gradient(to bottom, var(--dark-brown) 0%, var(--medium-brown) 50%, var(--deep-brown) 100%);
+    min-height: 100vh;
+    padding-top: 2rem;
+}
+
+/* Hero Section */
+.hero-section {
+    margin-bottom: 2rem;
+}
+
+.main-title {
+    color: white;
+    font-size: 1.875rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+}
+
+.main-description {
+    color: white;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+/* Buttons Section */
+.buttons-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 3rem;
+}
+
+.btn {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.btn-primary {
+    background: white;
+    color: #8B4513;
+    border: none;
+}
+
+.btn-primary:hover {
+    background: #f5f5f5;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.arrow {
+    font-size: 1.2rem;
+}
+
+/* Coffee Image Section */
+.coffee-section {
+    margin-top: 3rem;
+}
+
+.coffee-image-container {
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #000;
+    min-height: 400px;
+}
+
+.coffee-image {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+    object-position: center center;
+    max-width: 100%;
+    max-height: 500px;
+    transition: none;
+    transform: none;
+}
+
+/* Responsive adjustments for image */
+@media (min-width: 768px) {
+    .coffee-image-container {
+        min-height: 450px;
+    }
+    
+    .coffee-image {
+        max-height: 600px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .coffee-image-container {
+        min-height: 500px;
+    }
+    
+    .coffee-image {
+        max-height: 650px;
+    }
+}
+
+@media (min-width: 1440px) {
+    .coffee-image-container {
+        min-height: 550px;
+    }
+    
+    .coffee-image {
+        max-height: 700px;
+    }
+}
+
+@media (max-width: 480px) {
+    .coffee-image-container {
+        min-height: 350px;
+    }
+    
+    .coffee-image {
+        max-height: 450px;
+    }
+}
+
+/* Products Section */
+.products-section {
+    background: #f5f5f5;
+    padding: 4rem 0;
+    margin-top: 0;
+}
+
+.products-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.products-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.products-description {
+    font-size: 1rem;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Product Card */
+.product-card {
+    background: white;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.product-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.product-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-image {
+    transform: scale(1.1);
+}
+
+.product-badge {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background: var(--primary-color);
+    color: white;
+    padding: 0.4rem 0.8rem;
+    border-radius: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: bold;
+    z-index: 10;
+}
+
+.badge-premium {
+    background: #8B4513;
+}
+
+.badge-leche {
+    background: #D2691E;
+}
+
+.badge-special {
+    background: #ff6b35;
+}
+
+.product-info {
+    padding: 1.5rem;
+}
+
+.product-name {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.product-weight {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 0.75rem;
+}
+
+.product-rating {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.rating-stars {
+    color: #ffd700;
+    font-size: 1rem;
+}
+
+.rating-number {
+    font-weight: bold;
+    color: #333;
+    font-size: 0.9rem;
+}
+
+.rating-count {
+    color: #999;
+    font-size: 0.85rem;
+}
+
+.product-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.product-price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.btn-add-cart {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-add-cart:hover {
+    background: var(--dark-brown);
+    transform: scale(1.05);
+}
+
+/* Responsive Products Grid */
+@media (min-width: 768px) {
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .products-title {
+        font-size: 2.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .products-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .products-title {
+        font-size: 2.75rem;
+    }
+
+    .product-image-wrapper {
+        height: 220px;
+    }
+}
+
+/* Responsive Design */
+
+/* Móvil pequeño (320px - 480px) */
+@media (max-width: 480px) {
+    .logo {
+        font-size: 1.25rem;
+    }
+
+    .main-title {
+        font-size: 1.5rem;
+    }
+
+    .main-description {
+        font-size: 0.9rem;
+    }
+
+    .cup {
+        width: 100px;
+        height: 80px;
+    }
+
+    .saucer {
+        width: 140px;
+        height: 25px;
+    }
+
+    .cup-handle {
+        right: -25px;
+        width: 35px;
+        height: 40px;
+        border-width: 6px;
+    }
+
+    .coffee-liquid {
+        left: 10px;
+        right: 10px;
+        height: 45px;
+    }
+
+    .coffee-container {
+        min-height: 300px;
+    }
+
+    .cup-wrapper {
+        min-height: 300px;
+    }
+}
+
+/* Móvil grande (481px - 767px) */
+@media (min-width: 481px) and (max-width: 767px) {
+    .logo {
+        font-size: 1.4rem;
+    }
+
+    .main-title {
+        font-size: 1.75rem;
+    }
+
+    .main-description {
+        font-size: 0.95rem;
+    }
+
+    .cup {
+        width: 120px;
+        height: 90px;
+    }
+
+    .saucer {
+        width: 170px;
+        height: 28px;
+    }
+
+    .cup-handle {
+        right: -30px;
+        width: 40px;
+        height: 45px;
+        border-width: 7px;
+    }
+
+    .coffee-liquid {
+        left: 12px;
+        right: 12px;
+        height: 55px;
+    }
+
+    .coffee-container {
+        min-height: 350px;
+    }
+
+    .cup-wrapper {
+        min-height: 350px;
+    }
+}
+
+/* Tablet (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .container {
+        padding: 0 2rem;
+    }
+
+    .logo {
+        font-size: 1.75rem;
+    }
+
+    .main-title {
+        font-size: 2.25rem;
+    }
+
+    .main-description {
+        font-size: 1.1rem;
+    }
+
+    .buttons-section {
+        flex-direction: row;
+        gap: 1rem;
+    }
+
+    .btn {
+        width: 50%;
+        padding: 1.1rem 1.75rem;
+    }
+
+    .cup {
+        width: 160px;
+        height: 110px;
+    }
+
+    .saucer {
+        width: 220px;
+        height: 35px;
+    }
+
+    .cup-handle {
+        right: -40px;
+        width: 50px;
+        height: 55px;
+        border-width: 9px;
+    }
+
+    .coffee-liquid {
+        left: 18px;
+        right: 18px;
+        height: 65px;
+    }
+
+    .coffee-container {
+        min-height: 450px;
+    }
+
+    .cup-wrapper {
+        min-height: 450px;
+    }
+}
+
+/* Laptop (1024px - 1439px) */
+@media (min-width: 1024px) and (max-width: 1439px) {
+    .container {
+        padding: 0 3rem;
+    }
+
+    .logo {
+        font-size: 2rem;
+    }
+
+    .main-title {
+        font-size: 2.75rem;
+        max-width: 90%;
+    }
+
+    .main-description {
+        font-size: 1.125rem;
+        max-width: 85%;
+    }
+
+    .buttons-section {
+        flex-direction: row;
+        gap: 1.5rem;
+    }
+
+    .btn {
+        width: auto;
+        min-width: 220px;
+        padding: 1.2rem 2.5rem;
+        font-size: 1.05rem;
+    }
+
+    .cup {
+        width: 180px;
+        height: 120px;
+    }
+
+    .saucer {
+        width: 250px;
+        height: 38px;
+    }
+
+    .cup-handle {
+        right: -45px;
+        width: 55px;
+        height: 60px;
+        border-width: 10px;
+    }
+
+    .coffee-liquid {
+        left: 20px;
+        right: 20px;
+        height: 70px;
+    }
+
+    .coffee-container {
+        min-height: 500px;
+    }
+
+    .cup-wrapper {
+        min-height: 500px;
+    }
+}
+
+/* Desktop grande (1440px+) */
+@media (min-width: 1440px) {
+    .container {
+        max-width: 1400px;
+        padding: 0 4rem;
+    }
+
+    .logo {
+        font-size: 2.25rem;
+    }
+
+    .main-title {
+        font-size: 3.5rem;
+        max-width: 85%;
+    }
+
+    .main-description {
+        font-size: 1.25rem;
+        max-width: 80%;
+    }
+
+    .buttons-section {
+        flex-direction: row;
+        gap: 2rem;
+    }
+
+    .btn {
+        width: auto;
+        min-width: 250px;
+        padding: 1.3rem 3rem;
+        font-size: 1.1rem;
+    }
+
+    .cup {
+        width: 200px;
+        height: 130px;
+    }
+
+    .saucer {
+        width: 280px;
+        height: 40px;
+    }
+
+    .cup-handle {
+        right: -50px;
+        width: 60px;
+        height: 65px;
+        border-width: 11px;
+    }
+
+    .coffee-liquid {
+        left: 22px;
+        right: 22px;
+        height: 75px;
+    }
+
+    .coffee-container {
+        min-height: 550px;
+    }
+
+    .cup-wrapper {
+        min-height: 550px;
+    }
+}
+
+/* Orientación horizontal (landscape) en móviles */
+@media (max-height: 500px) and (orientation: landscape) {
+    .main-title {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .main-description {
+        font-size: 0.85rem;
+        margin-bottom: 1rem;
+    }
+
+    .buttons-section {
+        flex-direction: row;
+        gap: 0.75rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .btn {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.9rem;
+    }
+
+    .coffee-container {
+        min-height: 250px;
+    }
+
+    .cup-wrapper {
+        min-height: 250px;
+        padding: 1rem;
+    }
+
+    .cup {
+        width: 90px;
+        height: 70px;
+    }
+
+    .saucer {
+        width: 130px;
+        height: 20px;
+    }
+}
+
+/* Pantallas ultra anchas (2K, 4K) */
+@media (min-width: 1920px) {
+    .container {
+        max-width: 1600px;
+    }
+
+    .main-title {
+        font-size: 4rem;
+    }
+
+    .main-description {
+        font-size: 1.4rem;
+    }
+
+    .coffee-container {
+        min-height: 600px;
+    }
+
+    .cup {
+        width: 220px;
+        height: 140px;
+    }
+
+    .saucer {
+        width: 300px;
+        height: 45px;
+    }
+}
+.footer {
+    background: #1a2332;
+    color: #fff;
+    padding: 4rem 0 2rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    color: #fff;
+}
+
+.footer-description {
+    color: #a0aec0;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 0.75rem;
+}
+
+.footer-link {
+    color: #a0aec0;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+    color: var(--primary-color);
+}
+
+.footer-contact {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    color: #a0aec0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.contact-icon {
+    font-size: 1.2rem;
+    color: #fbbf24;
+    flex-shrink: 0;
+}
+
+.footer-social-text {
+    color: #a0aec0;
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+.social-icons {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-icon {
+    width: 45px;
+    height: 45px;
+    background: #2d3748;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #a0aec0;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    background: var(--primary-color);
+    color: #fff;
+    transform: translateY(-3px);
+}
+
+.footer-bottom {
+    border-top: 1px solid #2d3748;
+    padding-top: 2rem;
+    text-align: center;
+}
+
+.copyright {
+    color: #718096;
+    font-size: 0.9rem;
+}
+
+/* Responsive Footer */
+@media (min-width: 768px) {
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .footer-content {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2rem;
+    }
+    
+    .footer-column:first-child {
+        grid-column: span 1;
+    }
+}
+
+/* Bottom Spacing */
+.bottom-spacing {
+    height: 5rem;
+}
+
+/* Responsive Design */
+
+/* Móvil pequeño (320px - 480px) */
+@media (max-width: 480px) {
+    .logo {
+        font-size: 1.25rem;
+    }
+
+    .main-title {
+        font-size: 1.5rem;
+    }
+
+    .main-description {
+        font-size: 0.9rem;
+    }
+
+    .cup {
+        width: 100px;
+        height: 80px;
+    }
+
+    .saucer {
+        width: 140px;
+        height: 25px;
+    }
+
+    .cup-handle {
+        right: -25px;
+        width: 35px;
+        height: 40px;
+        border-width: 6px;
+    }
+
+    .coffee-liquid {
+        left: 10px;
+        right: 10px;
+        height: 45px;
+    }
+
+    .coffee-container {
+        min-height: 300px;
+    }
+
+    .cup-wrapper {
+        min-height: 300px;
+    }
+}
+
+/* Móvil grande (481px - 767px) */
+@media (min-width: 481px) and (max-width: 767px) {
+    .logo {
+        font-size: 1.4rem;
+    }
+
+    .main-title {
+        font-size: 1.75rem;
+    }
+
+    .main-description {
+        font-size: 0.95rem;
+    }
+
+    .cup {
+        width: 120px;
+        height: 90px;
+    }
+
+    .saucer {
+        width: 170px;
+        height: 28px;
+    }
+
+    .cup-handle {
+        right: -30px;
+        width: 40px;
+        height: 45px;
+        border-width: 7px;
+    }
+
+    .coffee-liquid {
+        left: 12px;
+        right: 12px;
+        height: 55px;
+    }
+
+    .coffee-container {
+        min-height: 350px;
+    }
+
+    .cup-wrapper {
+        min-height: 350px;
+    }
+}
+
+/* Tablet (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .container {
+        padding: 0 2rem;
+    }
+
+    .logo {
+        font-size: 1.75rem;
+    }
+
+    .main-title {
+        font-size: 2.25rem;
+    }
+
+    .main-description {
+        font-size: 1.1rem;
+    }
+
+    .buttons-section {
+        flex-direction: row;
+        gap: 1rem;
+    }
+
+    .btn {
+        width: 50%;
+        padding: 1.1rem 1.75rem;
+    }
+
+    .cup {
+        width: 160px;
+        height: 110px;
+    }
+
+    .saucer {
+        width: 220px;
+        height: 35px;
+    }
+
+    .cup-handle {
+        right: -40px;
+        width: 50px;
+        height: 55px;
+        border-width: 9px;
+    }
+
+    .coffee-liquid {
+        left: 18px;
+        right: 18px;
+        height: 65px;
+    }
+
+    .coffee-container {
+        min-height: 450px;
+    }
+
+    .cup-wrapper {
+        min-height: 450px;
+    }
+}
+
+/* Laptop (1024px - 1439px) */
+@media (min-width: 1024px) and (max-width: 1439px) {
+    .container {
+        padding: 0 3rem;
+    }
+
+    .logo {
+        font-size: 2rem;
+    }
+
+    .main-title {
+        font-size: 2.75rem;
+        max-width: 90%;
+    }
+
+    .main-description {
+        font-size: 1.125rem;
+        max-width: 85%;
+    }
+
+    .buttons-section {
+        flex-direction: row;
+        gap: 1.5rem;
+    }
+
+    .btn {
+        width: auto;
+        min-width: 220px;
+        padding: 1.2rem 2.5rem;
+        font-size: 1.05rem;
+    }
+
+    .cup {
+        width: 180px;
+        height: 120px;
+    }
+
+    .saucer {
+        width: 250px;
+        height: 38px;
+    }
+
+    .cup-handle {
+        right: -45px;
+        width: 55px;
+        height: 60px;
+        border-width: 10px;
+    }
+
+    .coffee-liquid {
+        left: 20px;
+        right: 20px;
+        height: 70px;
+    }
+
+    .coffee-container {
+        min-height: 500px;
+    }
+
+    .cup-wrapper {
+        min-height: 500px;
+    }
+}
+
+/* Desktop grande (1440px+) */
+@media (min-width: 1440px) {
+    .container {
+        max-width: 1400px;
+        padding: 0 4rem;
+    }
+
+    .logo {
+        font-size: 2.25rem;
+    }
+
+    .main-title {
+        font-size: 3.5rem;
+        max-width: 85%;
+    }
+
+    .main-description {
+        font-size: 1.25rem;
+        max-width: 80%;
+    }
+
+    .buttons-section {
+        flex-direction: row;
+        gap: 2rem;
+    }
+
+    .btn {
+        width: auto;
+        min-width: 250px;
+        padding: 1.3rem 3rem;
+        font-size: 1.1rem;
+    }
+
+    .cup {
+        width: 200px;
+        height: 130px;
+    }
+
+    .saucer {
+        width: 280px;
+        height: 40px;
+    }
+
+    .cup-handle {
+        right: -50px;
+        width: 60px;
+        height: 65px;
+        border-width: 11px;
+    }
+
+    .coffee-liquid {
+        left: 22px;
+        right: 22px;
+        height: 75px;
+    }
+
+    .coffee-container {
+        min-height: 550px;
+    }
+
+    .cup-wrapper {
+        min-height: 550px;
+    }
+}
